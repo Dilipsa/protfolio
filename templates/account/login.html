@@ -1,6 +1,18 @@
 {% extends "account/base.html" %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags static %}
 {% block head_title %}Login{% endblock %}
+
+{% block css %}
+<style>
+.error{
+    color:red;
+}
+.predefined_format{
+  display: none;
+}
+</style>
+{% endblock %}
+
 {% block inner %}
 <section>
   <h1 class="text-center">Login</h1>
@@ -8,7 +20,7 @@
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <div class="card-body">
-          <form class="login" method="POST" action="{% url 'account_login' %}">
+          <form class="login" method="POST" action="{% url 'account_login' %}" id="login_form">
             {% csrf_token %}
             {{ form|crispy }}
             <button class="primaryAction btn btn-secondary w-100" type="submit">Login</button>
@@ -20,3 +32,9 @@
   </div>
 </section>
 {% endblock %}
+
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{% static 'js/users/user_login.js' %}"></script>
+{% endblock javascript %}

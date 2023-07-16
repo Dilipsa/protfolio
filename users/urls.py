@@ -5,7 +5,8 @@ from .views import (
   user_lists, 
   user_details,
   user_profile, 
-  user_redirect_view
+  user_redirect_view,
+  check_email_registered
 )
 
 app_name='users'
@@ -15,4 +16,5 @@ urlpatterns = [
   path("user-details/<int:pk>/", user_details, name="user_details"),
   path("user-locations/", user_locations, name="user_locations"),
   path("user-lists/", user_lists, name="user_lists"),
+  path("check-email-registered/", check_email_registered, name="check_email_registered"),
 ]

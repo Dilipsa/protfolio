@@ -113,6 +113,27 @@ def user_locations(request):
     ]
     return JsonResponse(locations, safe=False)
 
+def check_email_registered(request):
+    """
+    Check if an email is already registered in the system.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        JsonResponse: JSON response containing the 'registered' key.
+            - If the email is already registered, 'registered' is set to True.
+            - If the email is not registered, 'registered' is set to False.
+    """
+    email = request.GET.get('email', '')
+    users = User.objects.filter(email=email)
+
+    if users.exists():
+        return JsonResponse({'registered': True}, status=200)
+    else:
+        return JsonResponse({'registered': False}, status=200)
+
+
 class UserRedirectView(LoginRequiredMixin, RedirectView):
     """
     Redirect the user to a specific URL based on their user type.

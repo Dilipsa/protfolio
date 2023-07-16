@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}User Lists{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+{% endblock %}
+{% block content %}
+    <section>
+    <h1 class="text-center">All users</h1>
+      <div id="map" style="height: 74vh;"></div>
+    </section>
+{% endblock %}
+{% block javascript %}
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="{% static 'js/users/user_location.js' %}"></script>
+{% endblock javascript %}

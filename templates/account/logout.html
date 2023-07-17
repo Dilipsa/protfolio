@@ -1,6 +1,8 @@
 {% extends "account/base.html" %}
 {% load crispy_forms_tags %}
-{% block head_title %}{% translate "Sign Out" %}{% endblock %}
+
+{% block head_title %}Sign Out{% endblock %}
+
 {% block inner %}
 <section>
   <h1 class="text-center">Sign Out</h1>
@@ -8,7 +10,7 @@
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <div class="card-body">
-          <p class="text-center">{% translate 'Are you sure you want to sign out?' %}</p>
+          <p class="text-center">Are you sure you want to sign out?</p>
           <form method="post" action="{% url 'account_logout' %}">
             {% csrf_token %}
             {% if redirect_field_value %}

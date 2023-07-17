@@ -2,6 +2,7 @@
 {% load crispy_forms_tags static %}
 
 {% block title %}{{ user.username }}{% endblock %}
+
 {% block css %}
 <style>
 .error{
@@ -16,17 +17,18 @@
 {% block content %}
     {% if user.latitude and user.longitude %}{% include "users/user_location.html" %}{% endif %}
   <section>
-  <form class="form-horizontal" method="post" action="{% url 'users:user_profile' %}" id="profile_form">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <div class="control-group">
-      <div class="controls">
-        <button type="submit" class="btn btn-secondary w-100">Update</button>
+    <form class="form-horizontal" method="post" action="{% url 'users:user_profile' %}" id="profile_form">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn btn-secondary w-100">Update</button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
   </section>
 {% endblock %}
+
 {% block javascript %}
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

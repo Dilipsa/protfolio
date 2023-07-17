@@ -9,6 +9,7 @@ from .views import (
   check_email_registered
 )
 
+
 app_name='users'
 urlpatterns = [
   path("~redirect/", view=user_redirect_view, name="redirect"),

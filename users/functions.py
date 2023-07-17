@@ -1,6 +1,7 @@
 from functools import wraps
 from django.http import Http404
 
+
 def allow_access_to_superuser(func):
     """
     Decorator to allow access to superuser only.

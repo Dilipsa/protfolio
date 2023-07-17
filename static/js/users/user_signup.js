@@ -39,7 +39,7 @@ $('#signup_form').validate({
     },
     password1: {
       required: "Please enter your password",
-      minlength: "Password must be at least 8 characters long",
+      minlength: "Password must be at least 8 characters long"
     },
     password2: {
       required: "Please enter your password",

@@ -13,8 +13,6 @@ class ProfileUpdateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ProfileUpdateForm, self).__init__(*args, **kwargs)
         self.fields['email'].widget.attrs['readonly'] = True
-        for field_name, field in self.fields.items():
-            field.required = True
 
     class Meta:
         model = User
